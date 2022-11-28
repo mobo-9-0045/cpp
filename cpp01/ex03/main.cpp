@@ -11,13 +11,24 @@
 /* ************************************************************************** */
 
 #include"HumanA.hpp"
+#include"HumanB.hpp"
 
 int	main()
 {
-	Weapon wA = Weapon("Deagle");
-	HumanA hA("MoBo", wA);
-	hA.attack();
-	wA.setType("M421");
-	hA.attack();
+	{
+		Weapon w = Weapon("D-eagle");
+		HumanA hA("MoBo", w);
+		hA.attack();
+		w.setType("M421");
+		hA.attack();
+	}
+	{
+		Weapon w = Weapon("M421");
+		HumanB hb ("MoBo b");
+		hb.setWeapon(w);
+		hb.attack();
+		w.setType("D-eagle");
+		hb.attack();
+	}
 	return (0);
 }

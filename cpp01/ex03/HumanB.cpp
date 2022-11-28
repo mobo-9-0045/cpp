@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aomman <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/25 14:26:40 by aomman            #+#    #+#             */
-/*   Updated: 2022/11/25 14:26:42 by aomman           ###   ########.fr       */
+/*   Created: 2022/11/28 18:00:04 by aomman            #+#    #+#             */
+/*   Updated: 2022/11/28 18:00:16 by aomman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-# define	WEAPON_HPP
-# include<iostream>
+#include "HumanB.hpp"
 
-class Weapon
+HumanB::HumanB(std::string name) : weapb(NULL)
 {
-	private :
-		std::string	Type;
-	public :
-		Weapon(std::string Type);
-		void		setType(std::string Type);
-		std::string	getType();
-		~Weapon();
-};
+	this->nameB = name;
+	std::cout << "HumanB " << nameB << " created with no weapon" << std::endl;
+}
 
-#endif
+void	HumanB::setWeapon(Weapon &weapb)
+{
+	this->weapb = &weapb;
+}
+
+void	HumanB::attack()
+{
+	std::cout << nameB << " attack with his " << weapb->getType() << std::endl;
+}
+
+HumanB::~HumanB(){}

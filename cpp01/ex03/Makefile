@@ -15,7 +15,7 @@ NAME = voilence
 all : ${NAME}
 
 ${NAME}:
-	c++ -Wall -Wextra -Werror -g -fsanitize=address main.cpp Weapon.cpp HumanA.cpp -o ${NAME}
+	c++  -std=c++98 -Wall -Wextra -Werror -g -fsanitize=address main.cpp Weapon.cpp HumanA.cpp HumanB.cpp HumanB.hpp -o ${NAME}
 
 clean:
 	rm -f ${NAME}
