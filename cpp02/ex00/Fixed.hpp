@@ -1,17 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aomman <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 18:41:00 by aomman            #+#    #+#             */
-/*   Updated: 2022/12/02 13:25:30 by aomman           ###   ########.fr       */
+/*   Created: 2022/12/02 16:00:11 by aomman            #+#    #+#             */
+/*   Updated: 2022/12/02 16:00:12 by aomman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef FIXED_HPP
+# define FIXED_HPP
+# include <iostream>
 
-int main()
-{	return (0);
-}
+class Fixed
+{
+	private :
+		int fixed_point;
+		static const int bits = 8;
+	public :
+		Fixed(int fixed_point);
+		Fixed(Fixed &f);
+		Fixed &operator = (Fixed *f);
+		~Fixed();
+		int 	getRawBits(void) const;
+		void	setRawBits(int const Raw);
+};
+
+#endif
