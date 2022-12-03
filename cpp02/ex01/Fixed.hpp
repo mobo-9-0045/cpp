@@ -13,18 +13,24 @@
 #ifndef FIXED_HPP
 # define FIXED_HPP
 # include <iostream>
+# include <math.h>
 
 class Fixed
 {
 	private :
 		int fixed_point;
-		static const int bits = 8;
+		float point;
+		static const int fbits = 8;
 	public :
 		Fixed();
-		Fixed(int fixed_point);
+		Fixed(const int fixed_point);
+		Fixed(float point);
 		Fixed(Fixed &f);
 		Fixed &operator=(Fixed &f);
 		~Fixed();
+		float toFloat(void) const;
+		int toInt(void) const;
+		int toInt(void) const;
 		int 	getRawBits(void) const;
 		void	setRawBits(int const raw);
 };

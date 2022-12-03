@@ -47,6 +47,23 @@ int Fixed::getRawBits(void) const
 	return (this->fixed_point);
 }
 
+Fixed::Fixed(float point)
+{
+	this->point = point;
+}
+
+float	Fixed::toFloat(void) const
+{
+	//that converts the fixed-point value to a floating-point value;
+	return (this->point)
+}
+
+int 	Fixed::toInt(void) const
+{
+	//that converts the fixed-point value to an integer value.
+	return (fixed_point);
+}
+
 Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;
