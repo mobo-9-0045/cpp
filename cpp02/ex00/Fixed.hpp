@@ -20,12 +20,13 @@ class Fixed
 		int fixed_point;
 		static const int bits = 8;
 	public :
+		Fixed();
 		Fixed(int fixed_point);
 		Fixed(Fixed &f);
-		Fixed &operator = (Fixed *f);
+		Fixed &operator=(Fixed &f);
 		~Fixed();
-		int 	getRawBits(void) const;
-		void	setRawBits(int const Raw);
+		int 	getRawBits(void);
+		void	setRawBits(int const raw);
 };
 
 #endif
