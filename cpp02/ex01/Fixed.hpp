@@ -19,20 +19,25 @@ class Fixed
 {
 	private :
 		int fixed_point;
-		float point;
-		static const int fbits = 8;
+		static const int fractbits = 8;
 	public :
 		Fixed();
-		Fixed(const int fixed_point);
-		Fixed(float point);
-		Fixed(Fixed &f);
-		Fixed &operator=(Fixed &f);
-		~Fixed();
-		float toFloat(void) const;
-		int toInt(void) const;
-		int toInt(void) const;
+
+		Fixed(int const num);
+		Fixed(float const point);
+
+		Fixed(Fixed const &f);
+		Fixed &operator = (Fixed const &f);
+
+		float	toFloat(void) const;
+		int 	toInt(void) const;
+
 		int 	getRawBits(void) const;
 		void	setRawBits(int const raw);
+
+		~Fixed();
 };
+
+std::ostream &operator << (std::ostream &o, Fixed const &f);
 
 #endif
