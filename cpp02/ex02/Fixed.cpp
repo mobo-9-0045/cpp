@@ -29,7 +29,7 @@ Fixed &Fixed::operator = (Fixed const &f)
 	return (*this);
 }
 // < oper
-bool Fixed::operator < (Fixed const &f)
+int Fixed::operator < (Fixed const &f) const
 {
 	if (this->fixed_point < f.fixed_point)
 		return (0);
@@ -38,7 +38,7 @@ bool Fixed::operator < (Fixed const &f)
 
 // > 
 
-bool Fixed::operator > (Fixed const &f)
+int Fixed::operator > (Fixed const &f) const
 {
 	if (this->fixed_point > f.fixed_point)
 		return (0);
@@ -83,6 +83,56 @@ Fixed Fixed::operator - (Fixed const &f) const
 	return (ret);
 }
 
+// *
+Fixed Fixed::operator * (Fixed const &f) const
+{
+	Fixed ret(this->toFloat() * f.toFloat());
+	return (ret);
+}
+
+//  /
+
+Fixed Fixed::operator / (Fixed const &f) const
+{
+	Fixed ret(this->toFloat() / f.toFloat());
+	return (ret);
+}
+
+// ++F
+
+Fixed Fixed::operator ++ (void)
+{
+	this->fixed_point++;
+	return (*this);
+}
+
+//--F
+
+Fixed Fixed::operator -- (void)
+{
+	this->fixed_point--;
+	return (*this);
+}
+
+//F++
+Fixed Fixed::operator ++ (int)
+{
+	Fixed tmp;
+	tmp = *this;
+	this->fixed_point++;
+	return (tmp);
+}
+
+//F--
+
+Fixed Fixed::operator -- (int)
+{
+	Fixed tmp;
+	tmp = *this;
+	this->fixed_point--;
+	return (tmp);
+}
+
 Fixed::Fixed(int const num)
 {
 	this->fixed_point = (num << this->fractbits);
@@ -114,6 +164,34 @@ int	Fixed::getRawBits(void) const
 void	Fixed::setRawBits(int const raw)
 {
 	this->fixed_point = raw;
+}
+
+Fixed &Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+const Fixed & Fixed::min(const Fixed & a, const Fixed & b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed &b)
+{
+	if ( a > b)
+		return (a);
+	return (b);
+}
+
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
+{
+	if (a > b)
+		return (a);
+	return (b);
 }
 
 std::ostream &operator << (std::ostream &o, Fixed const &f)
