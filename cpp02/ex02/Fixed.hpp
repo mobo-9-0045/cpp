@@ -31,7 +31,7 @@ class Fixed
 		bool operator != (Fixed const &f);
 		Fixed &operator = (Fixed const &f);
 		Fixed operator + (Fixed const &f) const;
-		Fixed &operator - (Fixed const &f);
+		Fixed operator - (Fixed const &f) const;
 		Fixed &operator * (Fixed const &f);
 
 		Fixed(int const num);

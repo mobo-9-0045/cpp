@@ -76,25 +76,11 @@ bool Fixed::operator != (Fixed const &f)
 	return (1);
 }
 
-//+
-Fixed Fixed::operator + (Fixed const &f) const
-{
-	Fixed ret(this->toFloat() + f.toFloat());
-	return (ret);
-}
-
 // -
-Fixed &Fixed::operator - (Fixed const &f)
+Fixed Fixed::operator - (Fixed const &f) const
 {
-	this->fixed_point = this->fixed_point - f.fixed_point;
-	return (*this);
-}
-
-// *
-Fixed &Fixed::operator * (Fixed const &f)
-{
-	this->fixed_point = this->fixed_point * f.fixed_point;
-	return (*this);
+	Fixed ret(this->toFloat() - f.toFloat());
+	return (ret);
 }
 
 Fixed::Fixed(int const num)
