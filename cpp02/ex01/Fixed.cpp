@@ -71,6 +71,7 @@ int Fixed::getRawBits(void) const
 void	Fixed::setRawBits(int const raw)
 {
 	this->fixed_point = raw;
+	// this->fixed_point = 2560;
 }
 
 std::ostream &operator << (std::ostream &o, Fixed const &f)
