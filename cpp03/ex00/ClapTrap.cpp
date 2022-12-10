@@ -33,6 +33,50 @@ ClapTrap::ClapTrap(ClapTrap &ct)
     std::cout << "Copy constuctor called" << std::endl;
 }
 
+ClapTrap &ClapTrap::operator = (ClapTrap &ct)
+{
+    this->name = ct.name;
+    this->hit_point = ct.hit_point;
+    this->energy_point = ct.energy_point;
+    this->attack_damage = ct.attack_damage;
+    return (*this);
+}
+
+void    ClapTrap::attack(const std::string &name)
+{
+    if (energy_point >= 1 && hit_point >= 1)
+    {
+        std::cout << "ClapTrape " << name << " attack " << this->name << ", causing " << this->attack_damage << " Point of damage" << std::endl;
+        energy_point -= 1;
+        hit_point = hit_point - 1;
+    }
+    if (energy_point == 0 || hit_point == 0)
+        std::cout << "no enough energy point" << std::endl;
+}
+
+void    ClapTrap::takeDamage(unsigned int amount)
+{
+    this->energy_point = this->energy_point - amount;
+    if (this->energy_point <= 0)
+    {
+        std::cout << "ClapTrap " << this->name << " took " << amount << " Of damage and is now knoked" << std::endl;
+    }
+    else
+        std::cout << "ClapTrap " << this->name << " took " << amount << " of damage and now onlye got " << this->energy_point << " point left" << std::endl;
+
+}
+
+void    ClapTrap::beRepaired(unsigned int amount)
+{
+    this->energy_point = this->energy_point + amount;
+    if (this->energy_point >= 10)
+    {
+        this->energy_point = 10;
+        std::cout << "you can't heal" << std::endl;
+    }
+    std::cout << "ClapTrap" << this->name << " was just repaired " << amount << " energie point now he got " << this->energy_point << std::endl;
+}
+
 ClapTrap::~ClapTrap()
 {
     std::cout << "defualt destructor called" << std::endl;

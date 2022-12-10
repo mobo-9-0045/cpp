@@ -15,6 +15,10 @@
 int main(void)
 {
     ClapTrap cp1("mobo", 10, 10, 0);
-    // ClapTrap cp2(cp1);
+    ClapTrap cp2(cp1);
+    cp2.takeDamage(5);
+    cp2.takeDamage(2);
+    cp2.takeDamage(3);
+    cp2.beRepaired(10);
     return (0);
 }
