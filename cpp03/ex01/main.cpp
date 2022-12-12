@@ -11,14 +11,11 @@
 /* ************************************************************************** */
 
 #include"ClapTrap.hpp"
+#include"ScavTrap.hpp"
 
 int main(void)
 {
-    ClapTrap cp1("mobo", 10, 10, 0);
-    ClapTrap cp2(cp1);
-    cp2.takeDamage(5);
-    cp2.takeDamage(2);
-    cp2.takeDamage(3);
-    cp2.beRepaired(11);
+    ScavTrap sc1;
+    sc1.guardGate();
     return (0);
 }

@@ -12,14 +12,14 @@
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap():name(""), hit_point(10), energy_point(10), attack_damage(0)
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "ClapTrap Default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name, int hp, int ep, int ad)
 {
-    std::cout << "Inisialisation constructor called" << std::endl;
+    std::cout << "ClapTrap Param constructor called" << std::endl;
     this->name = name;
     this->hit_point = hp;
     this->energy_point = ep;
@@ -39,6 +39,7 @@ ClapTrap &ClapTrap::operator = (ClapTrap &ct)
     this->hit_point = ct.hit_point;
     this->energy_point = ct.energy_point;
     this->attack_damage = ct.attack_damage;
+    std::cout << "ClapTrap copy assingement operator called" << std::endl;
     return (*this);
 }
 
@@ -57,6 +58,7 @@ void    ClapTrap::attack(const std::string &name)
 void    ClapTrap::takeDamage(unsigned int amount)
 {
     this->energy_point = this->energy_point - amount;
+    std::cout << "energy point : " << this->energy_point << std::endl;
     if (this->energy_point <= 0)
     {
         std::cout << "ClapTrap " << this->name << " took " << amount << " Of damage and is now knoked" << std::endl;
@@ -78,5 +80,5 @@ void    ClapTrap::beRepaired(unsigned int amount)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "defualt destructor called" << std::endl;
+    std::cout << "ClapTrap destructor called" << std::endl;
 }
