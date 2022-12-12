@@ -15,7 +15,9 @@
 
 int main(void)
 {
-    ScavTrap sc1;
+    ScavTrap sc1("Scrap");
+    sc1.ClapTrap::attack("Clap");
+    sc1.takeDamage(20);
     sc1.guardGate();
     return (0);
 }
