@@ -15,6 +15,7 @@
 Cat::Cat()
 {
 	this->type = "Cat";
+	b = new Brain();
 	std::cout << "Cat default constructor called" << std::endl;
 }
 
@@ -37,12 +38,18 @@ std::string Cat::getType(void) const
 	return (this->type);
 }
 
-void	Cat::makeSound()const
+void	Cat::makeSound() const
 {
 	std::cout << "Cat sound" << std::endl;
 }
 
+Brain	*Cat::getBrain(void) const
+{
+	return (this->b);
+}
+
 Cat::~Cat()
 {
+	delete b;
 	std::cout << "Cat destructor called" << std::endl;
 }
