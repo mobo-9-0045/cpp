@@ -43,9 +43,30 @@ void	Cat::makeSound() const
 	std::cout << "Cat sound" << std::endl;
 }
 
-Brain	*Cat::getBrain(void) const
+
+void	Cat::makeidea(std::string cat_idea)
 {
-	return (this->b);
+	int i;
+
+	i = 0;
+	while (i < 100)
+	{
+		b->setidea(i, cat_idea);
+		i++;
+	}
+	std::cout << "Cat brain is Full" << std::endl;
+}
+
+void	Cat::display_idea(void)
+{
+	int i;
+
+	i = 0;
+	while (i < 100)
+	{
+		std::cout << b->getidea(i) << std::endl;
+		i++;
+	}
 }
 
 Cat::~Cat()

@@ -38,9 +38,24 @@ Brain &Brain::operator = (const Brain &b)
 	return (*this);
 }
 
-std::string	*Brain::getidea(void) const
+std::string	Brain::getidea(unsigned int i) const
 {
-	return (this->idea);
+	if (i > 99)
+	{
+		std::cout << "idea not found " << i << "index out of range" << std::endl;
+		return ("");
+	}
+	return (this->idea[i]);
+}
+
+void	Brain::setidea(unsigned int i, std::string str_idea)
+{
+	if (i > 99)
+	{
+		std::cout << "idea can't set " << i << "index should be less than 100" << std::endl;
+		return ;
+	}
+	this->idea[i] = str_idea;
 }
 
 Brain::~Brain()

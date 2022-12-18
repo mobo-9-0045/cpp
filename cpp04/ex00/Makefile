@@ -15,7 +15,7 @@ NAME = animale
 all : ${NAME}
 
 ${NAME} : 
-	c++ -std=c++98 -Wall -Wextra -Werror -g -fsanitize=address -Wshadow -Wno-shadow main.cpp Animal.cpp Dog.cpp Cat.cpp -o ${NAME}
+	c++ -std=c++98 -Wall -Wextra -Werror -g -fsanitize=address -Wshadow -Wno-shadow main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp -o ${NAME}
 clean :
 	rm -f ${NAME}
 

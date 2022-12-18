@@ -16,13 +16,11 @@
 
 int main(void)
 {
-	const Animal *a;
-	a = new Cat();
-	const Animal *b;
-	b = new Cat();
-	a = b;
-	std::cout << a->getType() << std::endl;
-	delete a;
-	delete b;
+	Cat *cat = new Cat();
+
+	cat->getBrain();
+	// cat->makeidea("...SHHHHH...");
+	// cat->display_idea();
+	delete cat;
 	return (0);
 }
