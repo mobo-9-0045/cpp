@@ -14,26 +14,28 @@
 
 Brain::Brain()
 {
+	this->idea = new std::string[100];
 	std::cout << "Brain default constructor called" << std::endl;
 }
 
-Brain::Brain(Brain &b)
-{
-	if (this != &b)
-		*this = b;
-	std::cout << "Brain copy constructor called" << std::endl;
-}
-
-Brain &Brain::operator = (const Brain &b)
+Brain::Brain(const Brain &b)
 {
 	int i;
-
+	if (!b.idea)
+		return;
+	this->idea = new std::string[100];
 	i = 0;
-	while (i <= 100)
+	while (i < 100)
 	{
 		this->idea[i] = b.idea[i];
 		i++;
 	}
+	std::cout << "Brain copy constructor called" << std::endl;
+}
+
+Brain &Brain::operator = (Brain b)
+{
+	this->idea = b.idea;
 	std::cout << "Brain copy assignement overload called" << std::endl;
 	return (*this);
 }
@@ -60,5 +62,7 @@ void	Brain::setidea(unsigned int i, std::string str_idea)
 
 Brain::~Brain()
 {
+	if (idea)
+		delete[] idea;
 	std::cout << "Brain destructor called" << std::endl;
 }

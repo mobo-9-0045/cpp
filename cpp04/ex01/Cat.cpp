@@ -14,21 +14,22 @@
 
 Cat::Cat()
 {
-	this->type = "Cat";
-	b = new Brain();
 	std::cout << "Cat default constructor called" << std::endl;
+	this->type = "Cat";
+	this->b = new Brain();
 }
 
-Cat::Cat(Cat &c) : Animal()
+Cat::Cat(const Cat &c) : Animal()
 {
-	if (this != &c)
-		*this = c;
 	std::cout << "Cat copy constructor called" << std::endl;
+	this->type = c.getType();
+	this->b = new Brain(*c.b);
 }
 
-Cat &Cat::operator=(const Cat &c)
+Cat &Cat::operator=(Cat &c)
 {
 	this->type = c.type;
+	this->b = c.b;
 	std::cout << "Cat copy assaingement operator called" << std::endl;
 	return (*this);
 }
@@ -40,7 +41,7 @@ std::string Cat::getType(void) const
 
 void	Cat::makeSound() const
 {
-	std::cout << "Cat sound" << std::endl;
+	std::cout <<this->type <<  " sound" << std::endl;
 }
 
 
@@ -49,28 +50,37 @@ void	Cat::makeidea(std::string cat_idea)
 	int i;
 
 	i = 0;
-	while (i < 100)
+	while(i < 100)
 	{
-		b->setidea(i, cat_idea);
+		if (this->b->getidea(i) == "")
+		{
+			this->b->setidea(i, cat_idea);
+			return;
+		}
 		i++;
 	}
-	std::cout << "Cat brain is Full" << std::endl;
+	std::cout << "Cat'brain is Full" << std::endl;
 }
 
-void	Cat::display_idea(void)
+void	Cat::display_idea(void) const
 {
 	int i;
 
+	std::string str;
+	std::cout << "cat'ideas : " << std::endl;
 	i = 0;
 	while (i < 100)
 	{
-		std::cout << b->getidea(i) << std::endl;
+		str = this->b->getidea(i);
+		if (str.empty())
+			return;
+		std::cout << str << std::endl;
 		i++;
 	}
 }
 
 Cat::~Cat()
 {
-	delete b;
 	std::cout << "Cat destructor called" << std::endl;
+	delete this->b;
 }

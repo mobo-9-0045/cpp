@@ -18,16 +18,15 @@ class Cat : public Animal
 {
 	private : 
 		Brain *b;
-		std::string type;
 	public : 
 		Cat();
-		Cat(Cat &c);
-		Cat &operator= (const Cat &c);
+		Cat(const Cat &c);
+		Cat &operator= (Cat &c);
 
 		std::string getType(void) const;
 		void	makeSound(void) const;
 		void	makeidea(std::string cat_idea);
-		void	display_idea(void);
+		void	display_idea(void) const;
 		~Cat();
 };
 

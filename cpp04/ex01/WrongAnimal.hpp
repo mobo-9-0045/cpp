@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yourLogin <yourLogin@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/17 13:34:42 by yourLogin         #+#    #+#             */
-/*   Updated: 2022/12/17 13:34:43 by yourLogin        ###   ########.fr       */
+/*   Created: 2022/12/18 12:46:09 by yourLogin         #+#    #+#             */
+/*   Updated: 2022/12/18 12:46:11 by yourLogin        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
-#include <iostream>
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
+# include<iostream>
 
-class Brain
+class WrongAnimal
 {
-	private : 
-		std::string *idea;
+	protected : 
+		std::string type;
 	public : 
-		Brain();
-		Brain(const Brain &b);
-		Brain &operator = (Brain b);
-		std::string getidea(unsigned int i) const;
-		void		setidea(unsigned int i, std::string str_idea);
-		~Brain();
+		WrongAnimal();
+		WrongAnimal (WrongAnimal &wa);
+		WrongAnimal &operator = (const WrongAnimal &wa);
+		std::string gettype(void) const;
+		void	makeSound(void) const;
+		~WrongAnimal();
 };
 
 #endif

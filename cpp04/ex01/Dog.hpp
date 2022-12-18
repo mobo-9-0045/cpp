@@ -18,15 +18,15 @@ class Dog : public Animal
 {
 	private : 
 		Brain *b;
-		std::string type;
 	public : 
 		Dog();
-		Dog(Dog &d);
-		Dog &operator= (const Dog &d);
+		Dog(const Dog &d);
+		Dog &operator= (Dog &d);
 
 		std::string getType(void) const;
 		void	makeSound(void) const;
-		
+		void	makeidea(std::string dog_idea);
+		void	display_idea(void) const;
 		~Dog();
 };
 
