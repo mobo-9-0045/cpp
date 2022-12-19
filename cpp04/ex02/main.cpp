@@ -22,7 +22,7 @@ int main(void)
 	delete cat;
 	delete dog;
 	std::cout << "----------------array of animals----------------" << std::endl;
-	Animal *a[4];
+	AAnimal *a[4];
 	i = 0;
 	while (i < 4)
 	{
@@ -50,7 +50,7 @@ int main(void)
 	cat2->display_idea();
 	cat3->display_idea();
 	std::cout << "----------------Copy assignement operatpr----------------" <<std::endl;
-	Cat *cat4 = new Cat();
+	// Cat *cat4 = new Cat();
 	std::cout << "----------------assign cat 3 to cat 4 ----------------" <<std::endl;
 	// *cat4 = *cat3;
 	// cat4->display_idea();
@@ -66,6 +66,6 @@ int main(void)
 	}
 	delete cat2;
 	delete cat3;
-	delete cat4;
+	// delete cat4;
 	return (0);
 }
