@@ -30,11 +30,19 @@ class Bureaucrat
 			public : 
 				virtual const char* what() const throw();
 		};
-		// void	GradeTooLowException(void) const;
-		void	setGrade(int grade) ;
-		std::string getName(void);
-		int	getGrade(void);
+		class GradeTooLowException : public std::exception
+		{
+			public : 
+				virtual const char *what() const throw();
+		};
+		void	setGrade(int grade);
+		std::string getName(void) const;
+		int	getGrade(void) const;
+		void	increment(int inc_grad);
+		void	decrement(int dec_grad);
 		~Bureaucrat();
 };
+
+std::ostream &operator << (std::ostream &o, const Bureaucrat &b);
 
 #endif

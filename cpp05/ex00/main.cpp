@@ -16,14 +16,14 @@ int main(void)
 {
     try
     {
-        Bureaucrat *b1 = new Bureaucrat("MoBo", 1);
-        b1->setGrade(151);
-        std::cout << b1->getGrade() << std::endl;
-        // delete b1;
+        Bureaucrat b1("MoBo", 150);
+        b1.increment(149);
+        b1.decrement(149);
+        std::cout << b1;
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << std::endl;
+        std::cerr << "Error : " <<e.what() << std::endl;
     }
     return (0);
 }
