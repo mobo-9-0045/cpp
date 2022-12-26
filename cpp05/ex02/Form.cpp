@@ -18,8 +18,8 @@ Form::Form():grade(0), ex_grade(0)
 	std::cout << "Form default constructor called" << std::endl;
 }
 
-Form::Form(const std::string &name, const std::string &target, const int &grade, const int &ex_grade):
-name(name), target(target), indicator(false), grade(grade), ex_grade(ex_grade)
+Form::Form(const std::string &name, const int &grade, const int &ex_grade):
+name(name), indicator(false), grade(grade), ex_grade(ex_grade)
 {
 	if (this->grade > 150)
 		throw (GradeTooLowException());
@@ -57,7 +57,6 @@ std::string	Form::getName(void) const
 {
 	return (this->name);
 }
-
 
 int	Form::getGrade(void) const
 {

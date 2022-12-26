@@ -81,14 +81,6 @@ void	Bureaucrat::decrement(int dec_grade)
 		throw (GradeTooLowException());
 }
 
-void	Bureaucrat::execute(Form const &form)
-{
-	if (this->grade >= from.getGrade())
-		std::cout << this->getName() << " executed " << form.getName() << std::endl;
-	else
-		throw (GradeTooLowException());
-}
-
 Bureaucrat::~Bureaucrat()
 {
 	std::cout << "Bureaucrat destrcutor called" << std::endl;

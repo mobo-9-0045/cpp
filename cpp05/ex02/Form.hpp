@@ -12,7 +12,6 @@
 
 #ifndef FORM_HPP
 # define FORM_HPP
-# include<iostream>
 # include"Bureaucrat.hpp"
 
 class Form
@@ -23,7 +22,6 @@ class Form
 		const int			grade;
 		const int			ex_grade;
 	public :
-		virtual void absstract_class() = 0;
 		Form();
 		Form(const std::string &name, const int &grade, const int &ex_grade);
 		Form(const Form &f);
@@ -31,7 +29,7 @@ class Form
 		class	GradeTooHighException : public std::exception
 		{
 			public : 
-				virtual const char* what() const throw();
+				virtual const char *what() const throw();
 		};
 		class GradeTooLowException : public std::exception
 		{
@@ -43,8 +41,8 @@ class Form
 		int			getExGrade(void) const;
 		void		beSigned(Bureaucrat b);
 		void		singForm(Bureaucrat b);
-		void		execute(Bureaucrat const &executor)
-		~Form();
+		virtual void execute(Bureaucrat const &executor) const = 0;
+		virtual ~Form();
 };
 
 std::ostream &operator << (std::ostream &o, const Form &f);
