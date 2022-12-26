@@ -13,6 +13,7 @@
 #include"ShrubberyCreationForm.hpp"
 #include"RobotomyRequestForm.hpp"
 #include"PresidentialPardonForm.hpp"
+#include"Intern.hpp"
 int main(void)
 {
 	try
@@ -40,6 +41,17 @@ int main(void)
 		Bureaucrat b("Bureacrat", 4);
 		PresidentialPardonForm P("Pr");
 		P.execute(b);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "Error : " << e.what() << std::endl;
+	}
+	try
+	{
+		Intern someRandomIntern;
+		Form* rrf;
+		rrf = someRandomIntern.makeForm("President Pardon", "Bender");
+		delete rrf;
 	}
 	catch(const std::exception& e)
 	{
