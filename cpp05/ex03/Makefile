@@ -15,7 +15,7 @@ NAME = shruberry
 all : ${NAME}
 
 ${NAME} : 
-	c++ -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address main.cpp bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp -o ${NAME}
+	c++ -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp -o ${NAME}
 clean : 
 	rm -f ${NAME}
 fclean : clean
