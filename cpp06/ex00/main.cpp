@@ -6,13 +6,14 @@
 /*   By: mobo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:28:45 by mobo              #+#    #+#             */
-/*   Updated: 2022/12/28 14:43:44 by aomman           ###   ########.fr       */
+/*   Updated: 2022/12/29 14:44:02 by aomman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<iostream>
 #include<cstdlib>
 #include <string>
+#include<cmath>
 
 int	check_point(char *str)
 {
@@ -52,8 +53,15 @@ void	convert_to_float(char *str)
 	else
 		std::cout << "char : Non diplayable" << std::endl;
 	std::cout << "int: " << static_cast<int>(stof) << std::endl;
-	std::cout << "float: " << stof << "f" << std::endl;
-	std::cout << "double: " << static_cast<double>(stof) << std::endl;
+	double tmp;
+	if (modf(stof, &tmp) == 0)
+		std::cout << "float: " << stof << ".0f" << std::endl;
+	else
+		std::cout << "float: " << stof << "f" << std::endl;
+	if (modf(stof, &tmp) == 0)
+		std::cout << "double: " << static_cast<double>(stof) << ".0" <<std::endl;
+	else
+		std::cout << "double: " << static_cast<double>(stof) << std::endl;
 }
 
 void	nan_print(void)
@@ -79,5 +87,7 @@ int main(int argc, char **argv)
 		if (check == 1)
 			convert_to_float(argv[1]);
 	}
+	else
+		std::cout << "./covert program + number (<int>, <float>, <double>, or <nan>" << std::endl;
 	return (0);
 }
