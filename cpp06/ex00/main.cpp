@@ -6,7 +6,7 @@
 /*   By: mobo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 16:28:45 by mobo              #+#    #+#             */
-/*   Updated: 2022/12/29 14:44:02 by aomman           ###   ########.fr       */
+/*   Updated: 2022/12/29 14:50:29 by aomman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ void	convert_to_float(char *str)
 	else
 		std::cout << "char : Non diplayable" << std::endl;
 	std::cout << "int: " << static_cast<int>(stof) << std::endl;
-	double tmp;
-	if (modf(stof, &tmp) == 0)
+	double int_part;
+	if (modf(stof, &int_part) == 0)
 		std::cout << "float: " << stof << ".0f" << std::endl;
 	else
 		std::cout << "float: " << stof << "f" << std::endl;
-	if (modf(stof, &tmp) == 0)
+	if (modf(stof, &int_part) == 0)
 		std::cout << "double: " << static_cast<double>(stof) << ".0" <<std::endl;
 	else
 		std::cout << "double: " << static_cast<double>(stof) << std::endl;
