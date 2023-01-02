@@ -6,7 +6,7 @@
 /*   By: aomman <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 12:10:43 by aomman            #+#    #+#             */
-/*   Updated: 2023/01/01 12:17:24 by aomman           ###   ########.fr       */
+/*   Updated: 2023/01/02 17:31:46 by aomman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,19 @@
 # define BASE_HPP
 # include<iostream>
 
+
 class	Base
 {
-	public : 
-		Base();
-		Base(const Base &b);
-		Base &operator = (const Base &b);
+	public :
 		virtual ~Base();
 };
 
-#endif
+class A : public Base{};
+class B : public Base{};
+class C : public Base{};
 
+Base *generate(void);
+void identify(Base* p);
+void identify(Base& p);
+
+#endif

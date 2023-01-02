@@ -15,7 +15,7 @@ NAME = base
 all : ${NAME}
 
 ${NAME} : 
-	c++ -Wall -Wextra -Werror -std=c++98 main.cpp Base.cpp A.cpp B.cpp C.cpp -o ${NAME}
+	c++ -Wall -Wextra -Werror -std=c++98 main.cpp Base.cpp -o ${NAME}
 
 clean : 
 	rm -f ${NAME}
