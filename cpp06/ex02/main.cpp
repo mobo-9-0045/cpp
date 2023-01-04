@@ -20,4 +20,3 @@ int main(void)
 	delete b;
 	return (0);
 }
-
